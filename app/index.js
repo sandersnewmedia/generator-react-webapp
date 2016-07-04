@@ -98,6 +98,12 @@ module.exports = generators.Base.extend({
       self.fs.copyTpl(self.templatePath('server.js'),
             self.destinationPath('server.js'), self);
 
+      self.template('.babelrc', '.babelrc')
+      self.template('.eslintignore', '.eslintignore')
+      self.template('.gitignore', '.gitignore')
+      self.template('.scss-lint.yml', '.scss-lint.yml')
+      self.template('.travis.yml', '.travis.yml')
+      self.template('Procfile', 'Procfile')
       self.template('.env', '.env')
 
       self.fs.copyTpl(self.templatePath('README.md'),

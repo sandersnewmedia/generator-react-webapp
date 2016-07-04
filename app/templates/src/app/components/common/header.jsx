@@ -10,18 +10,14 @@ class Header extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a><h1>Pak'd</h1></a>
+            <a><h1>Welcome</h1></a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem>how it works</NavItem>
-            <NavItem>about pak'd</NavItem>
-            <NavItem>kid paks</NavItem>
-            <NavItem>adult paks</NavItem>
-            <NavItem>login</NavItem>
-          </Nav>
+            <NavItem>Home</NavItem>
+
           <Nav pullRight>
             <NavItem>Cart</NavItem>
           </Nav>

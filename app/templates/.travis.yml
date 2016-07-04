@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "6.0"
+sudo: false
+install:
+  - npm install
+before_script:
+  - npm run lint:js
+  - NODE_PATH=$NODE_PATH:./src/app:./src/server node server.js &
+  - sleep 5
+script: npm run test
+env:
+  global:
+  - CXX=g++-4.8
+  - PAKD_ENV=test
+  - NODE_ENV=development
+  - TRAVIS=1
+  - BUNDLE=bundle.js
+  - CSS_BUNDLE=bundle.css
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+cache:
+  directories:
+    - node_modules
