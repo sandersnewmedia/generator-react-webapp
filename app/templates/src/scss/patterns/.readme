@@ -1,0 +1,5 @@
+/*
+  If the object you are making is comprised of multiple objects,
+  then it goes in /patterns. This directory is reserved for objects
+  that have children, whom they effect
+*/
