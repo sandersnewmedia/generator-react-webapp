@@ -1,2 +1,6 @@
 // Make sure the charset is set appropriately
 @charset "UTF-8";
+//Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "base/variables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
