@@ -2,7 +2,7 @@
   "name": "generator-react-webpack-node",
   "version": "0.0.1",
   "description": "Generate a Node and React Web App",
-  "author": "Fulton Works",
+  "author": "Fulton Works (Isaah Forrest, Brent Sanders)",
   "files": [
     "app/index.js"
   ],
