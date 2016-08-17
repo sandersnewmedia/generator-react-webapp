@@ -9,7 +9,7 @@ var cssnano = require('cssnano');
 
 module.exports = {
   entry:  {
-    bundle: 'app.jsx'
+    bundle: 'index.jsx'
   },
   output: {
     path:     path.join(__dirname, 'dist'),
@@ -32,18 +32,21 @@ module.exports = {
         loader: ExtractTextPlugin.extract('css!postcss!sass')
       },
       {
-        test: /assets/,
-        exclude: /node_modules/,
-        loader: 'file?name=[name].[ext]'
+        test: /\.(png|woff|woff2|eot|ttf|svg|otf|jpg)(\?[a-z0-9=\.]+)?$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   },
-  postcss: function() {
-    return [autoprefixer({browsers: ['last 2 version']}), cssnano];
-  },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin('[name].[contenthash:8].css'),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new ExtractTextPlugin('style.[contenthash:8].css', {
+      allChunks: true
+    }),
     new webpack.DefinePlugin({
       'process.env': Object.keys(process.env).reduce(function(o, k) {
         o[k] = JSON.stringify(process.env[k]);
@@ -51,10 +54,5 @@ module.exports = {
       }, {})
     }),
     new ManifestPlugin()
-  ],
-  node: {
-    Buffer: true,
-    net: 'empty',
-    dns: 'empty'
-  },
+  ]
 };
