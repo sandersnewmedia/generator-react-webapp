@@ -7,7 +7,6 @@ var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 var jsesc = require('jsesc');
-var npmWhoami = require('npm-whoami');
 
 function jsonEscape(str) {
   return jsesc(str, {quotes: 'double'});
